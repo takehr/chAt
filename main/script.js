@@ -17,7 +17,7 @@ var roomId=null;
 var room;
 const buttonSend = document.getElementById('button-send');
 const inputText = document.getElementById('input-text');
-buttonSend.onclick(() => room.send(inputText.value));
+buttonSend.onclick= () => room.send(inputText.value));
 
 function geoFindMe(){
     alert("asdf");

@@ -1,4 +1,3 @@
-const Peer = window.Peer;
 window.__SKYWAY_KEY__ = '72be30ae-eee3-402e-a9a5-ee2dfbf5754a';
 var firebaseConfig = {
   apiKey: "AIzaSyBhS8D3igzOsis-HGp6qDdCDRrMXk9aJQI",

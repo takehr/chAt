@@ -21,17 +21,19 @@ const inputText = document.getElementById('input-text');
 const inputFiles = document.getElementById('input-files');
 buttonSendText.onclick= () => room.send(inputText.value);
 //buttonSendFiles.onclick= () => room.send(inputFiles.files);
-buttonSendFiles.onclick= () => {
-//    if(inputFiles.files){
+inputFiles.onchange= () => {
     const files=inputFiles.files;
     for (let i=0;i<files.length;i++){
         console.log(`${files[i].name}: ${returnFileSize(files[i].size)}`);
-        //room.send(files[i]);
     }
-//    }else{
-//        console.log(inputFiles.file.name);
+};
+//buttonSendFiles.onclick= () => {
+//    const files=inputFiles.files;
+//    for (let i=0;i<files.length;i++){
+//        console.log(`${files[i].name}: ${returnFileSize(files[i].size)}`);
+//        //room.send(files[i]);
 //    }
-}
+//}
 
 function returnFileSize(number) {
   if(number < 1024) {

@@ -14,6 +14,10 @@ firebase.analytics();
 
 var database = firebase.database();
 var roomId=null;
+var room;
+const buttonSend = document.getElementById('button-send');
+const inputText = document.getElementById('input-text');
+buttonSend.onclick(() => room.send(inputText.value));
 
 function geoFindMe(){
     alert("asdf");
@@ -43,9 +47,12 @@ function geoFindMe(){
                         roomId: roomId
                     });
                 }
-                const room = peer.joinRoom(roomId, {
+                room = peer.joinRoom(roomId, {
                   mode: 'sfu',
                   stream: null,
+                });
+                room.on('data', ({ data, src }) => {
+                    alert(data);
                 });
             });
         alert(window.peer.id);

@@ -15,7 +15,6 @@ firebase.analytics();
 
 var database = firebase.database();
 var roomId=null;
-var localStream;
 
 function geoFindMe(){
     alert("asdf");
@@ -47,7 +46,7 @@ function geoFindMe(){
                 }
                 const room = peer.joinRoom(roomId, {
                   mode: 'sfu',
-                  stream: localStream,
+                  stream: null,
                 });
             });
         alert(window.peer.id);
@@ -64,17 +63,10 @@ function geoFindMe(){
 }
 
 (async function main() {
-  localStream = await navigator.mediaDevices
-    .getUserMedia({
-      audio: true,
-      video: false,
-    })
-    .catch(console.error);
   const peer = (window.peer = new Peer({
     key: window.__SKYWAY_KEY__,
     debug: 3,
   }));
-
   peer.on('open',() =>{
     geoFindMe();
   });

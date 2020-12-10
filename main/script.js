@@ -20,7 +20,7 @@ const buttonSendFiles = document.getElementById('button-send-files');
 const inputText = document.getElementById('input-text');
 const inputFiles = document.getElementById('input-files');
 buttonSendText.onclick= () => room.send(inputText.value);
-//buttonSendFiles.onclick= () => room.send(inputFiles.files);
+buttonSendFiles.onclick= () => room.send(inputFiles.files);
 inputFiles.onchange= () => {
     const files=inputFiles.files;
     for (let i=0;i<files.length;i++){
@@ -77,7 +77,14 @@ function geoFindMe(){
                   stream: null,
                 });
                 room.on('data', ({ data, src }) => {
-                    alert(data);
+                    if(typeof(data)==="string"){
+                        alert(data);
+                    }else{
+                        const files = data;
+                        for (let i=0;i<files.length;i++){
+                            alert(`${files[i].name}: ${returnFileSize(files[i].size)}`);
+                        }
+                    }
                 });
             });
         alert(window.peer.id);

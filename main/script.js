@@ -15,10 +15,26 @@ firebase.analytics();
 var database = firebase.database();
 var roomId=null;
 var room;
-const buttonSend = document.getElementById('button-send');
+const buttonSendText = document.getElementById('button-send-text');
+const buttonSendFiles = document.getElementById('button-send-files');
 const inputText = document.getElementById('input-text');
-buttonSend.onclick= () => room.send(inputText.value);
+const inputFiles = document.getElementById('input-files');
+buttonSendText.onclick= () => room.send(inputText.value);
+//buttonSendFiles.onclick= () => room.send(inputFiles.files);
+buttonSendFiles.onclick= () => {
+    const files=inputFiles.files;
+    for (let i=0;i<files.length;i++)console.log(files[i].name);
+}
 
+function returnFileSize(number) {
+  if(number < 1024) {
+    return number + 'bytes';
+  } else if(number >= 1024 && number < 1048576) {
+    return (number/1024).toFixed(1) + 'KB';
+  } else if(number >= 1048576) {
+    return (number/1048576).toFixed(1) + 'MB';
+  }
+}
 function geoFindMe(){
     alert("asdf");
     function success(position) {

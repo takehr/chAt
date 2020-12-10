@@ -27,6 +27,7 @@ buttonSendFiles.onclick= () => {
         for (let i=0;i<files.length;i++){
             console.log(`${files[i].name}: ${returnFileSize(files[i].size)}`);
             //room.send(files[i]);
+            }
     }else{
         console.log(inputFiles.file.name);
     }

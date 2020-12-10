@@ -23,7 +23,7 @@ buttonSendText.onclick= () => room.send(inputText.value);
 //buttonSendFiles.onclick= () => room.send(inputFiles.files);
 buttonSendFiles.onclick= () => {
     const files=inputFiles.files;
-    for (let i=0;i<files.length;i++)console.log(files[i].name);
+    for (let i=0;i<files.length;i++)console.log('${files[i].name}: ${returnFileSize(files[i].size())}');
 }
 
 function returnFileSize(number) {

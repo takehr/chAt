@@ -27,13 +27,6 @@ inputFiles.onchange= () => {
         console.log(`${files[i].name}: ${returnFileSize(files[i].size)}`);
     }
 };
-//buttonSendFiles.onclick= () => {
-//    const files=inputFiles.files;
-//    for (let i=0;i<files.length;i++){
-//        console.log(`${files[i].name}: ${returnFileSize(files[i].size)}`);
-//        //room.send(files[i]);
-//    }
-//}
 
 function returnFileSize(number) {
   if(number < 1024) {
@@ -82,6 +75,7 @@ function geoFindMe(){
                     }else{
                         const files = data;
                         for (let i=0;i<files.length;i++){
+                            console.log(window.URL.createObjectURL(files[i]));
                             alert(`${files[i].name}: ${returnFileSize(files[i].size)}`);
                         }
                     }

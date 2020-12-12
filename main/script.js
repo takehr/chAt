@@ -75,7 +75,7 @@ function geoFindMe(){
                     }else{
                         const files = data;
                         for (let i=0;i<files.length;i++){
-                            console.log(window.URL.createObjectURL(files[i]));
+                            console.log(URL.createObjectURL(files[i]));
                             alert(`${files[i].name}: ${returnFileSize(files[i].size)}`);
                         }
                     }

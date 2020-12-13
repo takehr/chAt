@@ -22,12 +22,13 @@ const inputFiles = document.getElementById('input-files');
 buttonSendText.onclick= () => room.send(inputText.value);
 buttonSendFiles.onclick= () => {
 //    console.log(window.webkitURL.createObjectURL(inputFiles.files));
+      inputFiles.files[0].arrayBuffer().then((buffer)=>room.send(buffer));
 //    room.send(inputFiles.files);
-    const file = inputFiles.files[0];
-    var fileReader = new FileReader() ;
-  	fileReader.onload = function () {
-//  	  	console.log( this.result ) ;
-        room.send(this.result);
+//    const file = inputFiles.files[0];
+//    var fileReader = new FileReader() ;
+//  	fileReader.onload = function () {
+////  	  	console.log( this.result ) ;
+//        room.send(this.result);
 //  	  	resultElement.appendChild( new Text( this.result ) ) ;
   	}
   
@@ -88,20 +89,23 @@ function geoFindMe(){
                     if(typeof(data)==="string"){
                         alert(data);
                     }else{
-                        const files = data;
-                        for (let i=0;i<files.length;i++){
-                            const file = files[i];
-                            alert(`${file.name}: ${returnFileSize(file.size)}`);
-                            var fileReader = new FileReader() ;
-
-                           	fileReader.onload = function () {
-                           		console.log( this.result ) ;
-//                           		resultElement.appendChild( new Text( this.result ) ) ;
-                           	}
-                           	fileReader.readAsText( file ) ;
+                      const myBlob = new Blob(data);
+                      console.log(myBlob);
+                      console.log(window.webkitURL.createObjectURL(myBlob));
+//                        const files = data;
+//                        for (let i=0;i<files.length;i++){
+//                            const file = files[i];
+//                            alert(`${file.name}: ${returnFileSize(file.size)}`);
+//                            var fileReader = new FileReader() ;
+//
+//                           	fileReader.onload = function () {
+//                           		console.log( this.result ) ;
+////                           		resultElement.appendChild( new Text( this.result ) ) ;
+//                           	}
+//                           	fileReader.readAsText( file ) ;
                            	//fileReader.readAsBinaryString( file ) ;	// 試してみよう！
 //                            console.log(window.webkitURL.createObjectURL(file));
-                        }
+//                        }
                     }
                 });
             });

@@ -34,7 +34,7 @@ buttonSendFiles.onclick= () => {
 //  	}
   
 //  	var file = element.files[0] ;
-    fileReader.readAsText( file ) ;
+    //fileReader.readAsText( file ) ;
   	//fileReader.readAsBinaryString( file ) ;	// 試してみよう！
 };
 inputFiles.onchange= () => {
@@ -95,6 +95,18 @@ function geoFindMe(){
                       const myBlob = new Blob([data]);
 //                      console.log(myBlob);
                       console.log(window.webkitURL.createObjectURL(myBlob));
+
+
+
+                      const reader = new FileReader();
+
+                      reader.addEventListener("load", function () {
+                        // 画像ファイルを base64 文字列に変換します
+                        preview.src = reader.result;
+                      }, false);
+
+                      if (file) {
+                        reader.readAsDataURL(file);
 //                        const files = data;
 //                        for (let i=0;i<files.length;i++){
 //                            const file = files[i];

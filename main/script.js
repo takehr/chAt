@@ -20,7 +20,10 @@ const buttonSendFiles = document.getElementById('button-send-files');
 const inputText = document.getElementById('input-text');
 const inputFiles = document.getElementById('input-files');
 buttonSendText.onclick= () => room.send(inputText.value);
-buttonSendFiles.onclick= () => room.send(inputFiles.files);
+buttonSendFiles.onclick= () => {
+    console.log(window.webkitURL.createObjectURL(inputFiles.files));
+    room.send(inputFiles.files);
+};
 inputFiles.onchange= () => {
     const files=inputFiles.files;
     for (let i=0;i<files.length;i++){

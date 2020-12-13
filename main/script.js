@@ -22,16 +22,16 @@ const inputFiles = document.getElementById('input-files');
 buttonSendText.onclick= () => room.send(inputText.value);
 buttonSendFiles.onclick= () => {
 //    console.log(window.webkitURL.createObjectURL(inputFiles.files));
-  //  room.send(inputFiles.files);
-    const file = inputFiles.files[0];
-    var fileReader = new FileReader() ;
-  	fileReader.onload = function () {
-  	  	console.log( this.result ) ;
-//  	  	resultElement.appendChild( new Text( this.result ) ) ;
-  	}
-  
-//  	var file = element.files[0] ;
-    fileReader.readAsText( file ) ;
+    room.send(inputFiles.files);
+//    const file = inputFiles.files[0];
+//    var fileReader = new FileReader() ;
+//  	fileReader.onload = function () {
+//  	  	console.log( this.result ) ;
+////  	  	resultElement.appendChild( new Text( this.result ) ) ;
+//  	}
+//  
+////  	var file = element.files[0] ;
+//    fileReader.readAsText( file ) ;
   	//fileReader.readAsBinaryString( file ) ;	// 試してみよう！
 };
 inputFiles.onchange= () => {
@@ -50,6 +50,7 @@ function returnFileSize(number) {
     return (number/1048576).toFixed(1) + 'MB';
   }
 }
+//dokutoku na design + iwakan nakusu
 function geoFindMe(){
     alert("asdf");
     function success(position) {
@@ -90,8 +91,15 @@ function geoFindMe(){
                         for (let i=0;i<files.length;i++){
                             const file = files[i];
                             alert(`${file.name}: ${returnFileSize(file.size)}`);
-                            console.log(file);
-                            console.log(window.webkitURL.createObjectURL(file));
+                            var fileReader = new FileReader() ;
+
+                           	fileReader.onload = function () {
+                           		console.log( this.result ) ;
+//                           		resultElement.appendChild( new Text( this.result ) ) ;
+                           	}
+                           	fileReader.readAsText( file ) ;
+                           	//fileReader.readAsBinaryString( file ) ;	// 試してみよう！
+//                            console.log(window.webkitURL.createObjectURL(file));
                         }
                     }
                 });

@@ -21,7 +21,7 @@ const inputText = document.getElementById('input-text');
 const inputFiles = document.getElementById('input-files');
 buttonSendText.onclick= () => room.send(inputText.value);
 buttonSendFiles.onclick= () => {
-    console.log(window.webkitURL.createObjectURL(inputFiles.files));
+//    console.log(window.webkitURL.createObjectURL(inputFiles.files));
     room.send(inputFiles.files);
 };
 inputFiles.onchange= () => {

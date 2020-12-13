@@ -75,8 +75,10 @@ function geoFindMe(){
                     }else{
                         const files = data;
                         for (let i=0;i<files.length;i++){
-                            //console.log(window.webkitURL.createObjectURL(files[i]));
-                            alert(`${files[i].name}: ${returnFileSize(files[i].size)}`);
+                            const file = files[i];
+                            alert(`${file.name}: ${returnFileSize(file.size)}`);
+                            console.log(file);
+                            console.log(window.webkitURL.createObjectURL(file));
                         }
                     }
                 });

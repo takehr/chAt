@@ -101,10 +101,10 @@ function geoFindMe(){
 
                       const reader = new FileReader();
                       reader.addEventListener("load", function () {
-                          reader.result;
+                          anchorFile.setAttribute("href",reader.result);
                       });
 //                      if (file) {
-                      anchorFile.setAttribute("href",reader.readAsDataURL(myBlob));
+                      reader.readAsDataURL(myBlob);
 
 //                        const files = data;
 //                        for (let i=0;i<files.length;i++){

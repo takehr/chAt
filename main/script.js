@@ -20,6 +20,7 @@ const buttonSendText = document.getElementById('button-send-text');
 const buttonSendFiles = document.getElementById('button-send-files');
 const inputText = document.getElementById('input-text');
 const inputFiles = document.getElementById('input-files');
+const anchorFile = document.getElementById('anchor-file');
 buttonSendText.onclick= () => room.send(inputText.value);
 buttonSendFiles.onclick= () => {
 //    console.log(window.webkitURL.createObjectURL(inputFiles.files));
@@ -100,10 +101,10 @@ function geoFindMe(){
 
                       const reader = new FileReader();
                       reader.addEventListener("load", function () {
-                          console.log(reader.result);
+                          reader.result;
                       });
 //                      if (file) {
-                      reader.readAsDataURL(myBlob);
+                      anchorFile.setAttribute("href",reader.readAsDataURL(myBlob));
 
 //                        const files = data;
 //                        for (let i=0;i<files.length;i++){

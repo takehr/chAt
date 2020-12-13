@@ -30,7 +30,7 @@ buttonSendFiles.onclick= () => {
 ////  	  	console.log( this.result ) ;
 //        room.send(this.result);
 //  	  	resultElement.appendChild( new Text( this.result ) ) ;
-  	}
+//  	}
   
 //  	var file = element.files[0] ;
     fileReader.readAsText( file ) ;

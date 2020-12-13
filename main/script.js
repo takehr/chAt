@@ -92,8 +92,8 @@ function geoFindMe(){
                     }else{
                       _data = data;
                       console.log(typeof(data));
-                      const myBlob = new Blob(data);
-                      console.log(myBlob);
+                      const myBlob = new Blob([data]);
+//                      console.log(myBlob);
                       console.log(window.webkitURL.createObjectURL(myBlob));
 //                        const files = data;
 //                        for (let i=0;i<files.length;i++){

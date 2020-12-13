@@ -22,11 +22,12 @@ const inputFiles = document.getElementById('input-files');
 buttonSendText.onclick= () => room.send(inputText.value);
 buttonSendFiles.onclick= () => {
 //    console.log(window.webkitURL.createObjectURL(inputFiles.files));
-    room.send(inputFiles.files);
+//    room.send(inputFiles.files);
     const file = inputFiles.files[0];
     var fileReader = new FileReader() ;
   	fileReader.onload = function () {
-  	  	console.log( this.result ) ;
+//  	  	console.log( this.result ) ;
+        room.send(this.result);
 //  	  	resultElement.appendChild( new Text( this.result ) ) ;
   	}
   
